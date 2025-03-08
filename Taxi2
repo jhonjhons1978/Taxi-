@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Taxi Booking</title>
+  <!-- Roboto font, commonly used in Material Design -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    /* Reset and box-sizing */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Body style: light background, center content */
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #ECEFF1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+      color: #202124;
+    }
+
+    /* Main container */
+    .main-container {
+      background-color: #ffffff;
+      width: 100%;
+      max-width: 500px;
+      border-radius: 16px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      padding: 24px;
+    }
+
+    /* Title styling */
+    h1 {
+      text-align: center;
+      margin-bottom: 24px;
+      font-weight: 500;
+      font-size: 1.5rem;
+      color: #202124;
+    }
+
+    /* Available routes section */
+    .available-routes {
+      text-align: center;
+      margin-bottom: 24px;
+      font-size: 1rem;
+      color: #202124;
+      line-height: 1.5;
+    }
+    /* Emphasize phrases with a darker color */
+    .available-routes .route-title {
+      color: #000;
+      font-weight: 700;
+    }
+
+    /* Modified info-box for pricing and conditions */
+    .info-box {
+      background-color: #E0E0E0; /* Darker grey for emphasis */
+      border: 1px solid #DADCE0;
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 24px;
+      text-align: center;
+      color: #202124;
+    }
+    /* Styling for the attention title inside the info box */
+    .info-box .info-title {
+      font-weight: 700;
+      margin-bottom: 8px;
+      font-size: 1.1rem;
+    }
+    .info-box .info-title span {
+      color: red;
+    }
+
+    /* Form layout */
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Each form group */
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 16px;
+    }
+    .form-group label {
+      margin-bottom: 8px;
+      font-weight: 500;
+      font-size: 0.95rem;
+      color: #5f6368;
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      font-size: 0.95rem;
+      padding: 12px;
+      border: 1px solid #DADCE0;
+      border-radius: 8px;
+      background-color: #F5F5F5;
+      color: #202124;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: #4285F4;
+      box-shadow: 0 0 4px rgba(66, 133, 244, 0.3);
+      background-color: #ffffff;
+    }
+    .form-group textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    /* Submit button styling */
+    .submit-btn {
+      margin-top: 8px;
+      background-color: #4285F4;
+      color: #fff;
+      border: none;
+      border-radius: 24px;
+      padding: 14px;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .submit-btn:hover {
+      background-color: #357ae8;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 500px) {
+      .main-container {
+        padding: 16px;
+      }
+      h1 {
+        font-size: 1.3rem;
+      }
+      .available-routes,
+      .info-box {
+        margin-bottom: 20px;
+      }
+      .form-group label,
+      .form-group input,
+      .form-group textarea,
+      .form-group select,
+      .submit-btn {
+        font-size: 0.9rem;
+      }
+      .submit-btn {
+        padding: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="main-container">
+    <h1>Taxi Booking</h1>
+    
+    <!-- Available routes section now en la parte superior -->
+    <div class="available-routes">
+      <p>
+        <span class="route-title">Exclusive service from:</span><br>
+        Cala Rajada<br>
+        Font de sa Cala<br>
+        Canyamel<br>
+        Cala Mesquida<br>
+        <span class="route-title">to the Airport</span>
+      </p>
+    </div>
+    
+    <!-- Info box with Attention and pricing conditions -->
+    <div class="info-box">
+      <p class="info-title"><span>Attention:</span></p>
+      <p>The booking must be made at least one day in advance. The trip lasts one hour.</p>
+      <p>The day price is approximately €100, at night and on weekends approximately €115.</p>
+    </div>
+    
+    <form action="#" method="post">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required />
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone</label>
+        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required />
+      </div>
+      <!-- Number of people (1-4) -->
+      <div class="form-group">
+        <label for="people">How many people?</label>
+        <select id="people" name="people" required>
+          <option value="" disabled selected>Select number</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="pickup">Pick-up Point</label>
+        <input type="text" id="pickup" name="pickup" placeholder="Hotel or street and number" required />
+      </div>
+      <div class="form-group">
+        <label for="date">Date</label>
+        <input type="date" id="date" name="date" required />
+      </div>
+      <div class="form-group">
+        <label for="time">Time</label>
+        <input type="time" id="time" name="time" required />
+      </div>
+      <div class="form-group">
+        <label for="remarks">Remarks</label>
+        <textarea id="remarks" name="remarks" placeholder="Any special request?"></textarea>
+      </div>
+      <button type="submit" class="submit-btn">Book Now</button>
+    </form>
+  </div>
+</body>
+</html>
